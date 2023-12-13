@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('voiceline', function (Blueprint $table) {
-        $table->id();
-        $table->string('voiceline_number', 10)->unique();
-        $table->timestamps();
+            $table->id();
+            $table->string('voiceline_number', 10)->unique();
+            $table->timestamps();
         });
     }
 

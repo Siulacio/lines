@@ -16,15 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-});
+Route::view('/', 'auth.login');
 
 Route::resource('/employees', EmployeeController::class);
 
 Route::view('/login', 'auth.login')->name('login');
-Route::post('/login', [\App\Http\Controllers\AuthenticatedSessionController::class, 'store']);
-Route::post('/logout', [\App\Http\Controllers\AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::view('/register', 'auth.register')->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
